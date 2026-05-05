@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Slider</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div class="screen slider-page">
+    <img src="assets/5.Slider/Slider.png" class="bg">
+
+    <canvas id="visualCanvas"></canvas>
+
+    <!-- 슬라이더 3개 -->
+    <div class="slider-wrap slider-color">
+      <img src="assets/5.Slider/Sliderbg.png" class="slider-bg">
+      <div class="slider-fill"></div>
+      <input type="range" class="range-slider" id="colorSlider" min="0" max="100" value="50">
+    </div>
+
+    <div class="slider-wrap slider-after">
+      <img src="assets/5.Slider/Sliderbg.png" class="slider-bg">
+      <div class="slider-fill"></div>
+      <input type="range" class="range-slider" id="opacitySlider" min="0" max="100" value="50">
+    </div>
+
+    <div class="slider-wrap slider-density">
+      <img src="assets/5.Slider/Sliderbg.png" class="slider-bg">
+      <div class="slider-fill"></div>
+      <input type="range" class="range-slider" id="densitySlider" min="0" max="100" value="50">
+    </div>
+
+    <!-- 계절감 선택 -->
+    <div class="season-options">
+      <img src="assets/5.Slider/A1.png" class="season season-a" data-name="A">
+      <img src="assets/5.Slider/B1.png" class="season season-b" data-name="B">
+      <img src="assets/5.Slider/C1.png" class="season season-c" data-name="C">
+      <img src="assets/5.Slider/D1.png" class="season season-d" data-name="D">
+    </div>
+
+    <a href="Record.html">
+      <img src="assets/5.Slider/Back.png" class="btn back">
+    </a>
+
+   <a href="document.html" id="nextBtn">
+     <img src="assets/5.Slider/next.png" class="btn next">
+   </a>
+   <a href="document.html?edit=true" id="nextBtn"></a>
+  </div>
+
+  <script src="slider.js"></script>
+</body>
+</html>

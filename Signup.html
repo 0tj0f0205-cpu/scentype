@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Signup</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="screen">
+    <img src="assets/2.Signup/Signupbg.png" class="bg">
+
+    <a href="Signin.html">
+      <img src="assets/2.Signup/Signup.png" class="btn signup2">
+    </a>
+
+    <a href="Signin.html">
+      <img src="assets/2.Signup/Login.png" class="btn login2">
+    </a>
+
+    <!-- 🔥 여기 안에 넣어야 함 -->
+    <div class="input-field name">
+      <input type="text" placeholder="닉네임을 입력하세요">
+    </div>
+
+    <div class="input-field email">
+      <input type="text" placeholder="이메일을 입력하세요">
+    </div>
+
+    <div class="input-field password">
+      <input type="password" placeholder="비밀번호">
+    </div>
+
+    <div class="input-field confirm">
+      <input type="password" placeholder="비밀번호 확인">
+    </div>
+
+    <img src="assets/2.Signup/visable.png" class="eye-password">
+    <img src="assets/2.Signup/visable.png" class="eye-confirm">
+
+
+
+
+  </div>
+
+</body>
+</html>
+<input type="password" autocomplete="off">
+</div> <!-- screen 끝 -->
+
+<script>
+const eyes = document.querySelectorAll('.eye-password, .eye-confirm');
+const inputs = document.querySelectorAll('.password input, .confirm input');
+
+eyes.forEach((eye, index) => {
+  eye.addEventListener('click', () => {
+    const input = inputs[index];
+    input.type = input.type === 'password' ? 'text' : 'password';
+  });
+});
+</script>
+
+</body>
+</html>

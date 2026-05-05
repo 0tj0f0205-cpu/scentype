@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Record</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+<div class="screen">
+  <img src="assets/4.Record1/Record.png" class="bg">
+
+  <div class="card card1" data-shape="round">
+    <img src="assets/4.Record1/A1.png" class="card-bg">
+    <canvas class="preview-canvas"></canvas>
+  </div>
+
+  <div class="card card2" data-shape="sharp">
+    <img src="assets/4.Record1/B1.png" class="card-bg">
+    <canvas class="preview-canvas"></canvas>
+  </div>
+
+  <div class="card card3" data-shape="solid">
+    <img src="assets/4.Record1/C1.png" class="card-bg">
+    <canvas class="preview-canvas"></canvas>
+  </div>
+
+  <div class="card card4" data-shape="air">
+    <img src="assets/4.Record1/D1.png" class="card-bg">
+    <canvas class="preview-canvas"></canvas>
+  </div>
+
+  <a href="previous.html">
+    <img src="assets/4.Record1/Back.png" class="btn back">
+  </a>
+
+  <a href="Slider.html" id="nextBtn">
+    <img src="assets/4.Record1/next.png" class="btn next">
+  </a>
+  <a href="Slider.html?edit=true" id="nextBtn"></a>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
+  
+
+<script>
+const cards = document.querySelectorAll('.card');
+
+cards.forEach(card => {
+  card.addEventListener('click', () => {
+
+    // 전체 초기화
+    cards.forEach(c => {
+      c.classList.remove('active');
+
+      const img = c.querySelector('.card-bg');
+      img.src = img.src.replace('2.png', '1.png');
+    });
+
+    // 클릭된 카드
+    card.classList.add('active');
+
+    const img = card.querySelector('.card-bg');
+    img.src = img.src.replace('1.png', '2.png');
+
+  });
+});
+

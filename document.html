@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="screen">
+  <img src="assets/6.Document/document.png" class="bg">
+
+  <div class="scroll-content">
+  <div class="scroll-inner">
+    <!-- 지금 넣은 요소들 전부 여기 안에 -->
+
+    <!-- 타이틀 -->
+    <img src="assets/6.Document/향수 정보.png" class="title-document">
+
+    <!-- 브랜드 -->
+    <img src="assets/6.Document/브랜드.png" class="label brand-label">
+    <img src="assets/6.Document/드롭다운.png" class="dropdown" id="brandBtn">
+
+
+
+    <div class="dropdown-list" id="brandList">
+      <div data-brand="Diptyque">Diptyque</div>
+     <div data-brand="Jo Malone">Jo Malone</div>
+     <div data-brand="Chanel">Chanel</div>
+     <div data-brand="Dior">Dior</div>
+     <div data-brand="Le Labo">Le Labo</div>
+     <div data-brand="Byredo">Byredo</div>
+     <div data-brand="Maison Margiela">Maison Margiela</div>
+     <div data-brand="Aesop">Aesop</div>
+     <div data-brand="Tom Ford">Tom Ford</div>
+     <div data-brand="YSL">YSL</div>
+     <div data-brand="Gucci">Gucci</div>
+     <div data-brand="Hermès">Hermès</div>
+     <div data-brand="Guerlain">Guerlain</div>
+     <div data-brand="Acqua di Parma">Acqua di Parma</div>
+     <div data-brand="Frederic Malle">Frederic Malle</div>
+     <div data-brand="Serge Lutens">Serge Lutens</div>
+     <div data-brand="Penhaligon's">Penhaligon's</div>
+     <div data-brand="Creed">Creed</div>
+     <div data-brand="Atelier Cologne">Atelier Cologne</div>
+     <div data-brand="Tamburins">Tamburins</div>
+     <div data-brand="custom">직접 추가</div>
+</div>
+
+<input type="text" class="brand-custom-input" id="brandCustomInput" placeholder="브랜드 직접 입력">
+<div id="brandSelectedText" class="brand-selected-text">브랜드 선택</div>
+
+
+    <!-- 향수 이름 -->
+    <img src="assets/6.Document/향수 이름.png" class="label name-label">
+    <img src="assets/6.Document/향수 이름 기재.png" class="input-bg-name">
+    <input type="text" class="input name-input">
+
+    <!-- 주요 노트 -->
+    <img src="assets/6.Document/주요 노트.png" class="label note-label">
+    <img src="assets/6.Document/추가.png" class="add-btn" id="noteAdd">
+
+    <!-- 농도 -->
+    <img src="assets/6.Document/농도.png" class="label conc-label">
+
+    <div class="concentration">
+      <img src="assets/6.Document/EDC1.png" class="conc conc-EDC" data-name="EDC">
+      <img src="assets/6.Document/EDT1.png" class="conc conc-EDT" data-name="EDT">
+      <img src="assets/6.Document/EDP1.png" class="conc conc-EDP" data-name="EDP">
+      <img src="assets/6.Document/Parfum1.png" class="conc conc-Parfum" data-name="Parfum">
+    </div>
+
+    <!-- 시향한 곳 -->
+    <img src="assets/6.Document/시향한 곳.png" class="label place-label">
+    <img src="assets/6.Document/시향한 곳 기재.png" class="input-bg-place">
+    <input type="text" class="input place-input" placeholder="장소 입력 (선택)">
+
+    <!-- 메모 -->
+    <img src="assets/6.Document/이 향이 떠올리는 것.png" class="label memo-label">
+    <img src="assets/6.Document/이 향이 떠올리는 것 기재.png" class="input-bg-memo">
+    <textarea class="input memo-input" placeholder="햇볕 드는 오후, 낡은 책장 앞에 서있는 기분, 따뜻하고 조용한..."></textarea>
+
+    <a href="7.향수 정보/Data.html" id="saveBtn">
+      <img src="assets/6.Document/dosave.png" class="dosave">
+    </a>
+    <a href="7.향수 정보/Data.html" id="saveBtn"></a>
+
+    </div>
+  </div>
+
+  <a href="previous.html">
+    <img src="assets/6.Document/Back.png" class="doback">
+  </a>
+
+</div>
+
+<script src="document.js"></script>
+
+</body>
+</html>
