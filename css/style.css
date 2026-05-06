@@ -1,3 +1,6 @@
+html, body {
+  overflow-x: hidden;
+}
 body {
   margin: 0;
   background: #000; /* 확인용 */
@@ -966,7 +969,7 @@ body {
 .info-line {
   position: absolute;
   left: 0;
-  top: 362px;
+  top: 352px;
   width: 100%;
   text-align: center;
   font-size: 12px;
@@ -1034,6 +1037,7 @@ body {
   z-index: 9999;
   color:#A2A2A2;
   font-family: 'Tenor Sans';
+  white-space: nowrap;  
 }
 
 .sillage-score {
@@ -1379,7 +1383,7 @@ body {
 .recently-name {
   position: absolute;
   left: 20px;
-  top: 215px;
+  top: 210px;
   font-family: 'Cormorant Garamond';
   font-size: 20px;
   font-weight: 400;
@@ -1389,7 +1393,7 @@ body {
 .recently-info-line {
   position: absolute;
   left: 20px;
-  top: 242px;
+  top: 235px;
   width: 300px;
   font-family: 'Tenor Sans';
   font-size: 12px;
@@ -1437,4 +1441,126 @@ body {
   font-weight: 400;
   color: #A2A2A2;
   font-family: 'Tenor Sans';
+}
+
+.delete-btn {
+  position: absolute;
+  left: 321px;
+  top: 762px;
+  width: 56px;
+  height: 39px;
+  z-index: 1001;
+}
+
+.note-popup {
+  display: none;
+  position: absolute;
+  left: 27px;
+  top: 400px;
+  width: 340px;
+  height: 438px;
+  z-index: 9999;
+}
+
+.note-popup.open {
+  display: block;
+}
+
+.note-popup-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 340px;
+  height: 438px;
+  z-index: 1;
+}
+
+.note-list {
+  position: absolute;
+  left: 17px;
+  top: 90px;
+  z-index: 2;
+
+  display: grid;
+  grid-template-columns: repeat(3, 82px);
+  column-gap: 28px;
+  row-gap: 13px;
+}
+
+.note-option {
+  width: 82px;
+  height: 34px;
+  border-radius: 999px;
+
+  background: rgba(217, 217, 217, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: 'Tenor Sans';
+  font-size: 13px;
+  font-weight: 400;
+  color: #7A7068;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.note-option.selected {
+  background: #7A7068;
+  color: #fff;
+}
+
+.note-save-btn {
+  position: absolute;
+  left: 57px;
+  top: 382px;
+  width: 226px;
+  height: 32px;
+  z-index: 3;
+}
+
+.note-chip {
+  height: 25px;
+  padding: 0 10px;   /* 🔥 핵심 */
+
+  border-radius: 999px;
+  background: rgba(217, 217, 217, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: 'Tenor Sans';
+  font-size: 11px;
+  color: #7A7068;
+
+  white-space: nowrap;
+}
+
+.notes-container {
+  position: absolute;
+  top: 376px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  width: 300px;
+  z-index: 9999;
+}
+.recently-notes {
+  position: absolute;
+  left: 16px;
+  top: 258px;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 10px;   /* 👉 6 → 10~12로 올려 */
 }

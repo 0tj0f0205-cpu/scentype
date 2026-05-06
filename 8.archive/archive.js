@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       card.addEventListener("click", () => {
         localStorage.setItem("perfumeRecord", JSON.stringify(item));
-        location.href = "../7.향수 정보/Data.html";
+        location.href = "/7.info/Data.html";
       });
 
       archiveList.appendChild(card);

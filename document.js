@@ -67,22 +67,36 @@ concs.forEach((conc) => {
   });
 });
 
-// 주요 노트 추가
+// 주요 노트 팝업
 const noteAdd = document.getElementById("noteAdd");
+const notePopup = document.getElementById("notePopup");
 
-if (noteAdd) {
+if (noteAdd && notePopup) {
   noteAdd.addEventListener("click", () => {
-    alert("주요 노트 선택 화면 연결 예정");
+    notePopup.classList.add("open");
   });
 }
 
-const saveBtn = document.getElementById("saveBtn");
+document.querySelectorAll(".note-option").forEach(note => {
+  note.addEventListener("click", () => {
+    note.classList.toggle("selected");
+  });
+});
+
+// 저장
+const noteSaveBtn = document.getElementById("noteSaveBtn");
+
+if (noteSaveBtn && notePopup) {
+  noteSaveBtn.addEventListener("click", () => {
+    notePopup.classList.remove("open");
+  });
+}
 
 if (saveBtn) {
   saveBtn.addEventListener("click", () => {
     const data = JSON.parse(localStorage.getItem("perfumeRecord")) || {};
 
-    data.brand = selectedBrand || brandCustomInput.value || "";
+    data.brand = selectedBrand || brandCustomInput?.value || "";
     data.name = document.querySelector(".name-input")?.value || "";
     data.place = document.querySelector(".place-input")?.value || "";
     data.memo = document.querySelector(".memo-input")?.value || "";
@@ -90,20 +104,21 @@ if (saveBtn) {
     const activeConc = document.querySelector(".conc.active");
     data.concentration = activeConc ? activeConc.dataset.name : "";
 
+    data.notes = [...document.querySelectorAll(".note-option.selected")]
+      .map(note => note.dataset.note);
+
+    data.id = Date.now();
+
     localStorage.setItem("perfumeRecord", JSON.stringify(data));
 
     const archive = JSON.parse(localStorage.getItem("perfumeArchive")) || [];
 
-    data.id = Date.now();
+// 기존 같은 id 있으면 제거 (수정 대비)
+    const filtered = archive.filter(item => item.id !== data.id);
 
-    archive.push(data);
+    filtered.push(data);
 
+    localStorage.setItem("perfumeArchive", JSON.stringify(filtered));
     localStorage.setItem("perfumeArchive", JSON.stringify(archive));
   });
-  localStorage.setItem("perfumeRecord", JSON.stringify(data));
-
-   const archive = JSON.parse(localStorage.getItem("perfumeArchive")) || [];
-   data.id = Date.now();
-   archive.push(data);
-   localStorage.setItem("perfumeArchive", JSON.stringify(archive));
 }

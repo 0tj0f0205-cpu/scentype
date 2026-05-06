@@ -1,30 +1,31 @@
 document.addEventListener("DOMContentLoaded", () => {
   const archive = JSON.parse(localStorage.getItem("perfumeArchive")) || [];
 
-  const latest = archive.sort((a, b) => b.id - a.id)[0];
+  const latest = archive[archive.length - 1];
+
+  console.log("홈 latest:", latest);
 
   if (!latest) return;
 
   document.querySelector(".recently-visual").src = latest.visualImage || "";
   document.querySelector(".recently-name").textContent = latest.name || "";
-  const date = latest.id
-  ? new Date(latest.id).toLocaleDateString("ko-KR", {
-      month: "2-digit",
-      day: "2-digit"
-    }).replace(". ", ".").replace(".", "")
-  : "";
 
-document.querySelector(".recently-info-line").textContent =
-  `${latest.brand || ""} · ${latest.concentration || ""} · ${date}`;
-  document.querySelector(".recently-notes").textContent = Array.isArray(latest.notes)
-    ? latest.notes.join(" · ")
+  const date = latest.id
+    ? new Date(latest.id).toLocaleDateString("ko-KR", {
+        month: "2-digit",
+        day: "2-digit"
+      }).replace(". ", ".").replace(".", "")
     : "";
 
-  document.querySelector(".recently-card").addEventListener("click", () => {
+  document.querySelector(".recently-info-line").textContent =
+    `${latest.brand || ""} · ${latest.concentration || ""} · ${date}`;
+
+  renderNoteChips(".recently-notes", latest.notes);
+
+  document.querySelector(".recently-card")?.addEventListener("click", () => {
     localStorage.setItem("perfumeRecord", JSON.stringify(latest));
   });
 });
-
 const newsData = [
   {
     title: "Spring Fragrance Trend",
@@ -49,5 +50,19 @@ if (newsList) {
     `;
 
     newsList.appendChild(item);
+  });
+}
+
+function renderNoteChips(containerSelector, notes) {
+  const box = document.querySelector(containerSelector);
+  if (!box || !Array.isArray(notes)) return;
+
+  box.innerHTML = "";
+
+  notes.forEach(note => {
+    const chip = document.createElement("div");
+    chip.className = "note-chip";
+    chip.textContent = note;
+    box.appendChild(chip);
   });
 }
